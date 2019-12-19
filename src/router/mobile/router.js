@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Layout from '@/layout'
+import Layout from '@/layout/m_index'
 
 Vue.use(Router)
 const router = new Router({
@@ -14,9 +14,22 @@ const router = new Router({
       children: [
         {
           path: 'index',
+          // component: () => import('@/mobile/HelloWorld.vue'),
           component: () => import('@/views/dashboard/index'),
           name: 'Dashboard',
           meta: { title: '首页' }
+        }
+      ]
+    },
+    {
+      path: '/Test',
+      component: Layout,
+      children: [
+        {
+          path: 'test',
+          component: () => import('@/mobile/HelloWorld'),
+          name: 'Test',
+          meta: { title: '跳转' }
         }
       ]
     },
@@ -86,6 +99,14 @@ const router = new Router({
     { path: '*', component: () => import('@/views/error-page/404'), meta: { title: '404' }
     }
   ]
+})
+router.beforeEach((to, from, next) => {
+  if (!/Android|webOS|iPhone|iPod|BlackBerry|iPad/i.test(navigator.userAgent)) {
+    window.location.href = '/p_index.html#/'
+    return
+  }
+  window.document.title = to.meta.title
+  next()
 })
 
 export { router }

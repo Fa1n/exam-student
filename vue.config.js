@@ -12,7 +12,8 @@ module.exports = {
   lintOnSave: true,
   devServer: {
     open: true,
-    host: 'localhost',
+    // host: '127.0.0.1',
+    host: '192.168.81.72',
     port: 80,
     https: false,
     hotOnly: false,
@@ -28,6 +29,11 @@ module.exports = {
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html'
+    },
+    mobile: {
+      entry: 'src/m_main.js',
+      template: 'public/mobile/m_index.html',
+      filename: 'm_index.html'
     }
   },
   chainWebpack (config) {

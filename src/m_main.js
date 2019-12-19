@@ -1,6 +1,8 @@
 import Vue from 'vue'
-import App from './App.vue'
-import { router } from './router/pc/router'
+import App from './mobile/App.vue'
+import { router } from './router/mobile/router'
+// import App from './App.vue'
+// import { router } from './router/pc/router'
 import store from './store'
 import 'normalize.css/normalize.css'
 import Element from 'element-ui'
@@ -11,6 +13,7 @@ import './icons' // icon
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import 'lib-flexible/flexible.js'
+import '@/assets/iconfont/iconfont.css'
 
 Vue.use(Element, {
   size: 'medium' // set element-ui default size
